@@ -11,12 +11,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
+/**
+ * StudListAdapter - model adapter for the recycler view
+ */
 public class StudListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private List<Student> mList;
     public StudListAdapter(List<Student> list, Context context) {
         super();
-        System.out.println("<><><><>" + list.get(0).getId());
         mList = list;
     }
 
@@ -40,6 +42,7 @@ public class StudListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         }
     }
 
+    //On create will inflate the layout of the recycler
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int i) {
@@ -48,10 +51,11 @@ public class StudListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         return viewHolder;
     }
 
+
+    //Binding the data gathered to their holder counterpart
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         Student studAdapter = mList.get(position);
-        System.out.println("<<<<<<<<<<<<<<<<" + studAdapter.getId());
         ((ViewHolder) holder).mTextId.setText(Integer.toString(studAdapter.getId()));
         ((ViewHolder) holder).mTextFirstName.setText(studAdapter.getFirstName());
         ((ViewHolder) holder).mTextLastName.setText(studAdapter.getLastName());
@@ -60,6 +64,7 @@ public class StudListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         ((ViewHolder) holder).mTextMarks.setText(studAdapter.getMarks());
     }
 
+    //Counting the data
     @Override
     public int getItemCount() {
         return mList.size();

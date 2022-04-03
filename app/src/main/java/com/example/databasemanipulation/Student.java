@@ -1,5 +1,6 @@
 package com.example.databasemanipulation;
 
+//Student model class
 public class Student {
 
     private Integer id;

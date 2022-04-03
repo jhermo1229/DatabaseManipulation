@@ -16,12 +16,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * A simple {@link Fragment} subclass.
- * Use the {@link ViewFragment#} factory method to
- * create an instance of this fragment.
+ * ViewFragment - this shows all the available record in the database
  */
 public class ViewFragment extends Fragment {
 
+    //This fragment uses a recycler view for scrolling
     private RecyclerView mRecyclerview;
     private List<Student> mList = new ArrayList<>();
     private StudListAdapter mAdapter;
@@ -35,20 +34,28 @@ public class ViewFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View v = inflater.inflate(R.layout.fragment_view, container, false);
-        mRecyclerview = v.findViewById(R.id.recyclerView);
-        dbh = new DatabaseHelper(getActivity());
-        Cursor cursor = dbh.viewData();
+        View viewFragment = inflater.inflate(R.layout.fragment_view, container, false);
 
+        //getting the recycler view
+        mRecyclerview = viewFragment.findViewById(R.id.recyclerView);
+
+        //initializing database
+        dbh = new DatabaseHelper(getActivity());
+
+        //Getting all the available data using getAll parameter
+        Cursor cursor = dbh.viewData("getAll");
+
+        //if no record was found, will toast a no records message.
+        //Otherwise will set the values to object
         if(cursor == null){
             Toast.makeText(getContext(), "No Records Found", Toast.LENGTH_SHORT).show();
-            return v;
+            return viewFragment;
         }else{
+            //Setting the values in object then added to list
             if(cursor.moveToFirst()){
                 do{
                     Student stud = new Student();
                     stud.setId(cursor.getInt(cursor.getColumnIndexOrThrow("id")));
-                    System.out.println(">>>>>>>>>>>>>>>"+ stud.getId());
                     stud.setFirstName(cursor.getString(cursor.getColumnIndexOrThrow("first_name")));
                     stud.setLastName(cursor.getString(cursor.getColumnIndexOrThrow("last_name")));
                     stud.setCourse(cursor.getString(cursor.getColumnIndexOrThrow("course")));
@@ -59,17 +66,19 @@ public class ViewFragment extends Fragment {
             }
         }
 
+        //Closing the cursor and database then binding to the adapter needed
         cursor.close();
         dbh.close();
         bindAdapter();
 
-        return v;
+        return viewFragment;
     }
 
+
+    //Binding the list to recyclerview by using the object adapter
     private void bindAdapter(){
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
         mRecyclerview.setLayoutManager(layoutManager);
-        System.out.println("BEFORE ADAPTER CALL");
         mAdapter = new StudListAdapter(mList, getContext());
         mRecyclerview.setAdapter(mAdapter);
         mAdapter.notifyDataSetChanged();

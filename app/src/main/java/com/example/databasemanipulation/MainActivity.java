@@ -22,10 +22,6 @@ public class MainActivity extends AppCompatActivity {
 
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mToggle;
-//    private ListView listView;
-//    private TextView textView;
-//
-//    String courses[] = {"PROG 8480", "PROG 8470", "PROG 8460", "PROG 8450"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,32 +33,16 @@ public class MainActivity extends AppCompatActivity {
         mToggle.syncState();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         setNavigationDrawer();
-
-//        gradeEntryFragment();
     }
 
-//    private void gradeEntryFragment() {
-//        String radioBut ;
-//        setContentView(R.layout.grade_entry);
-//        listView = (ListView) findViewById(R.id.listView);
-//        textView = (TextView) findViewById(R.id.textView);
-//        final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, R.layout.listview, R.id.textView, courses);
-//        listView.setAdapter(arrayAdapter);
-//
-//        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-//                Toast.makeText(MainActivity.this, "Selected: " + listView.getItemAtPosition(i), Toast.LENGTH_SHORT).show();
-//            }
-//        });
-//    }
-
+    //Setting the navigation drawer
     private void setNavigationDrawer(){
         NavigationView navView = findViewById(R.id.nav_view);
         navView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
+                //Choosing the correct fragment to inflate depending on the user's clicked
                 Fragment frag = null;
                 int itemId = item.getItemId();
                 if(itemId == R.id.gradeEntry){
@@ -73,7 +53,6 @@ public class MainActivity extends AppCompatActivity {
                     frag = new SearchFragment();
                 }
 
-                Toast.makeText(getApplicationContext(), item.getTitle(), Toast.LENGTH_SHORT).show();
                 if(frag != null) {
                     //create fragment transaction
                     FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
@@ -89,7 +68,8 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private boolean onOptionItemSelected(MenuItem item){
+    //this gets override usually in fragments. Return true if option is toggled
+    public boolean onOptionItemSelected(MenuItem item){
         if(mToggle.onOptionsItemSelected(item)){
             return true;
         }

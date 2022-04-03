@@ -111,7 +111,7 @@ public class SearchFragment extends Fragment {
 //            View v = inflater.inflate(R.layout.fragment_view, container, false);
             mRecyclerview = searchView.findViewById(R.id.recyclerView2);
             dbh = new DatabaseHelper(getActivity());
-            Cursor cursor = dbh.viewData();
+            Cursor cursor = dbh.viewData(txtIdSearch.getText().toString());
 
             if(cursor == null){
                 Toast.makeText(getContext(), "No Records Found", Toast.LENGTH_SHORT).show();
