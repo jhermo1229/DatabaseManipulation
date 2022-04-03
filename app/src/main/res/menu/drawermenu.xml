@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/gradeEntry"
+        android:icon="@drawable/grade"
+        android:title="Grade Entry"
+     />
+
+    <item
+        android:id="@+id/viewGrades"
+        android:icon="@drawable/marking"
+        android:title="View Grades"
+        />
+
+    <item
+        android:id="@+id/search"
+        android:icon="@drawable/search"
+        android:title="Search"
+        />
+</menu>
