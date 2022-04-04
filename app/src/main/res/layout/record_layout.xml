@@ -9,7 +9,7 @@
         android:layout_width="50dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="TextView"
+        android:text="@string/id"
         android:gravity="center"/>
 
     <TextView
@@ -17,7 +17,7 @@
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="TextView"
+        android:text="@string/firstName"
         android:gravity="center"/>
 
     <TextView
@@ -25,7 +25,7 @@
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="TextView"
+        android:text="@string/lastName"
         android:gravity="center"/>
 
     <TextView
@@ -33,7 +33,7 @@
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="TextView"
+        android:text="@string/course"
         android:gravity="center"/>
 
     <TextView
@@ -41,7 +41,7 @@
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="TextView"
+        android:text="@string/marks"
         android:gravity="center"/>
 
     <TextView
@@ -49,7 +49,7 @@
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="TextView"
+        android:text="@string/credits"
         android:gravity="center"/>
 
 </LinearLayout>

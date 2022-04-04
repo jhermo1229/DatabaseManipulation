@@ -4,91 +4,35 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".GradeEntryFragment">
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-    <!-- TODO: Update blank fragment layout -->
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        <!-- TODO: Update blank fragment layout -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="150dp"
-            android:layout_height="match_parent"
-            android:gravity="center_vertical"
-            android:textStyle="bold"
-            android:textColor="@color/purple_500"
-            android:text="@string/firstName" />
-        <EditText
-            android:id="@+id/firstName"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:ems="10"
-            android:hint="First Name"
-            android:inputType="text"
-            android:selectAllOnFocus="true" />
-    </LinearLayout>
+            <TextView
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="@string/firstName"
+                android:textColor="@color/purple_500"
+                android:textStyle="bold" />
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="150dp"
-            android:layout_height="match_parent"
-            android:gravity="center_vertical"
-            android:textStyle="bold"
-            android:textColor="@color/purple_500"
-            android:text="@string/lastName" />
-        <EditText
-            android:id="@+id/lastName"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:ems="10"
-            android:hint="Last Name"
-            android:inputType="text"
-            android:selectAllOnFocus="true" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="150dp"
-            android:layout_height="match_parent"
-            android:gravity="center_vertical"
-            android:textStyle="bold"
-            android:textColor="@color/purple_500"
-            android:text="@string/marks" />
-        <EditText
-            android:id="@+id/marks"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:ems="10"
-            android:hint="Marks"
-            android:inputType="text"
-            android:selectAllOnFocus="true" />
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <ListView
-            android:id="@+id/listView"
-            android:layout_width="match_parent"
-            android:layout_height="fill_parent"
-            android:choiceMode="singleChoice"
-            android:listSelector="@android:color/darker_gray"
-            />
-
-    </LinearLayout>
+            <EditText
+                android:id="@+id/firstName"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:ems="10"
+                android:hint="First Name"
+                android:inputType="text"
+                android:selectAllOnFocus="true" />
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -98,30 +42,109 @@
             <TextView
                 android:layout_width="150dp"
                 android:layout_height="match_parent"
-                android:textStyle="bold"
+                android:gravity="center_vertical"
+                android:text="@string/lastName"
                 android:textColor="@color/purple_500"
-                android:text="@string/credits" />
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/lastName"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:ems="10"
+                android:hint="Last Name"
+                android:inputType="text"
+                android:selectAllOnFocus="true" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="@string/course"
+                android:textColor="@color/purple_500"
+                android:textStyle="bold" />
+
+            <ListView
+                android:id="@+id/searchProgramCodeListV"
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:choiceMode="singleChoice"
+                android:listSelector="@android:color/darker_gray" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="@string/marks"
+                android:textColor="@color/purple_500"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/marks"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:ems="10"
+                android:hint="Marks"
+                android:inputType="text"
+                android:selectAllOnFocus="true" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:text="@string/credits"
+                android:textColor="@color/purple_500"
+                android:textStyle="bold" />
+
             <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/creditRadioGroup"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:id="@+id/creditRadioGroup">
-                <RadioButton android:id="@+id/radio_one"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/radio_one"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/one"/>
-                <RadioButton android:id="@+id/radio_two"
+                    android:text="@string/one"
+                    android:checked="true"/>
+
+                <RadioButton
+                    android:id="@+id/radio_two"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/two"/>
-                <RadioButton android:id="@+id/radio_three"
+                    android:text="@string/two" />
+
+                <RadioButton
+                    android:id="@+id/radio_three"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/three"/>
-                <RadioButton android:id="@+id/radio_four"
+                    android:text="@string/three" />
+
+                <RadioButton
+                    android:id="@+id/radio_four"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/four"/>
+                    android:text="@string/four" />
             </RadioGroup>
         </LinearLayout>
 
@@ -137,9 +160,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:textStyle="bold"
-                android:textColor="@color/white"
                 android:text="@string/submit"
+                android:textColor="@color/white"
+                android:textStyle="bold"
                 tools:layout_editor_absoluteX="100dp"
                 tools:layout_editor_absoluteY="100dp" />
 

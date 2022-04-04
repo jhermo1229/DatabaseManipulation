@@ -43,7 +43,7 @@ public class ViewFragment extends Fragment {
         dbh = new DatabaseHelper(getActivity());
 
         //Getting all the available data using getAll parameter
-        Cursor cursor = dbh.viewData("getAll");
+        Cursor cursor = dbh.viewData("getAll","");
 
         //if no record was found, will toast a no records message.
         //Otherwise will set the values to object

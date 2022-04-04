@@ -16,7 +16,7 @@
                 android:layout_width="50dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="ID"
+                android:text="@string/id"
                 android:gravity="center"
                 android:textColor="@color/colorAccent"
                 android:textStyle="bold"/>
@@ -25,7 +25,7 @@
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="First Name"
+                android:text="@string/firstName"
                 android:gravity="center"
                 android:textColor="@color/colorAccent"
                 android:textStyle="bold"/>
@@ -34,7 +34,7 @@
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Last Name"
+                android:text="@string/lastName"
                 android:gravity="center"
                 android:textColor="@color/colorAccent"
                 android:textStyle="bold"/>
@@ -43,7 +43,7 @@
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Course"
+                android:text="@string/course"
                 android:gravity="center"
                 android:textColor="@color/colorAccent"
                 android:textStyle="bold"/>
@@ -52,7 +52,7 @@
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Mark"
+                android:text="@string/marks"
                 android:gravity="center"
                 android:textColor="@color/colorAccent"
                 android:textStyle="bold"/>
@@ -61,7 +61,7 @@
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Credit"
+                android:text="@string/credits"
                 android:gravity="center"
                 android:textColor="@color/colorAccent"
                 android:textStyle="bold"/>

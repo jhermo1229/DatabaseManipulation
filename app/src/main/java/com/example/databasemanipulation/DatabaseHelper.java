@@ -18,6 +18,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String dbName = "School.db";
     public static final int version = 2;
     public static final String TABLE_NAME = "Students";
+    public static final String ID = "id";
     public static final String COL1 = "id";
     public static final String COL2 = "first_name";
     public static final String COL3 = "last_name";
@@ -30,6 +31,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             + COL2 + " TEXT NOT NULL, " + COL3 + " TEXT, " + COL4 + " TEXT, " + COL5 + " TEXT, " + COL6 + " TEXT);";
     public static final String DROP_TABLE = "DROP TABLE IF EXISTS " + TABLE_NAME;
     public static final String GET_ALL = "getAll";
+    public static final String PROGRAM_CODE = "programCode";
 
 
     //Contructor for initializing database handler
@@ -73,19 +75,20 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     //Database call for selecting data in table
-    public Cursor viewData(String id) {
+    public Cursor viewData(String searchType, String param) {
         SQLiteDatabase db = this.getWritableDatabase();
 
-        Cursor cursor;
+        Cursor cursor = null;
 
         //if parameter passed is "getAll" then it gets all the data in the table.
-        //Otherwise, it gets based on id.
-        if(id.equalsIgnoreCase(GET_ALL)){
+        //Otherwise, it gets based on param.
+        if(searchType.equalsIgnoreCase(GET_ALL)){
             cursor = db.rawQuery("Select * from " + TABLE_NAME, null);
-        }else{
-            cursor = db.rawQuery("Select * from " + TABLE_NAME + " where id=?", new String[]{id});
+        }else if(searchType.equalsIgnoreCase(ID)){
+            cursor = db.rawQuery("Select * from " + TABLE_NAME + " where id=?", new String[]{param});
+        }else if(searchType.equalsIgnoreCase(PROGRAM_CODE)) {
+            cursor = db.rawQuery("Select * from " + TABLE_NAME + " where course=?", new String[]{param});
         }
-
         //if data gathered is not null, then will move to first record.
         if (cursor != null) {
             cursor.moveToFirst();

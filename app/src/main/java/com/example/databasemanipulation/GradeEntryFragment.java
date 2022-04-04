@@ -47,14 +47,14 @@ public class GradeEntryFragment extends Fragment {
         // Inflate the layout for this fragment
         gradeEntryView = (View) inflater.inflate(R.layout.fragment_grade_entry, container, false);
 
-        //gettinig the values from XML counterpart
+        //getting the values from XML counterpart
         firstName = gradeEntryView.findViewById(R.id.firstName);
         lastName = gradeEntryView.findViewById(R.id.lastName);
         marks = gradeEntryView.findViewById(R.id.marks);
         radioGroup = gradeEntryView.findViewById(R.id.creditRadioGroup);
 
         //Initializing listview
-        listView = gradeEntryView.findViewById(R.id.listView);
+        listView = gradeEntryView.findViewById(R.id.searchProgramCodeListV);
         //getting the textview being used by listview
         textView = gradeEntryView.findViewById(R.id.listViewTextView);
 
