@@ -17,12 +17,13 @@ import java.util.List;
 public class StudListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private List<Student> mList;
+
     public StudListAdapter(List<Student> list, Context context) {
         super();
         mList = list;
     }
 
-    class ViewHolder extends RecyclerView.ViewHolder{
+    class ViewHolder extends RecyclerView.ViewHolder {
         public TextView mTextId;
         public TextView mTextFirstName;
         public TextView mTextLastName;
@@ -30,10 +31,10 @@ public class StudListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         public TextView mTextCredits;
         public TextView mTextMarks;
 
-        public ViewHolder(View v){
+        public ViewHolder(View v) {
             super(v);
             mTextId = v.findViewById(R.id.txtId);
-            mTextFirstName=v.findViewById(R.id.firstName);
+            mTextFirstName = v.findViewById(R.id.firstName);
             mTextLastName = v.findViewById(R.id.lastName);
             mTextCourse = v.findViewById(R.id.course);
             mTextCredits = v.findViewById(R.id.credits);

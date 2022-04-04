@@ -20,6 +20,12 @@ import java.util.List;
  */
 public class ViewFragment extends Fragment {
 
+    public static final String ID = "id";
+    public static final String FIRST_NAME = "first_name";
+    public static final String LAST_NAME = "last_name";
+    public static final String COURSE = "course";
+    public static final String CREDITS = "credits";
+    public static final String MARKS = "marks";
     //This fragment uses a recycler view for scrolling
     private RecyclerView mRecyclerview;
     private List<Student> mList = new ArrayList<>();
@@ -43,26 +49,26 @@ public class ViewFragment extends Fragment {
         dbh = new DatabaseHelper(getActivity());
 
         //Getting all the available data using getAll parameter
-        Cursor cursor = dbh.viewData("getAll","");
-
+        Cursor cursor = dbh.viewData("getAll", "");
+    System.out.println("CURSOR: " + cursor);
         //if no record was found, will toast a no records message.
         //Otherwise will set the values to object
-        if(cursor == null){
+        if (cursor == null || cursor.getCount() == 0) {
             Toast.makeText(getContext(), "No Records Found", Toast.LENGTH_SHORT).show();
             return viewFragment;
-        }else{
+        } else {
             //Setting the values in object then added to list
-            if(cursor.moveToFirst()){
-                do{
+            if (cursor.moveToFirst()) {
+                do {
                     Student stud = new Student();
-                    stud.setId(cursor.getInt(cursor.getColumnIndexOrThrow("id")));
-                    stud.setFirstName(cursor.getString(cursor.getColumnIndexOrThrow("first_name")));
-                    stud.setLastName(cursor.getString(cursor.getColumnIndexOrThrow("last_name")));
-                    stud.setCourse(cursor.getString(cursor.getColumnIndexOrThrow("course")));
-                    stud.setCredits(cursor.getString(cursor.getColumnIndexOrThrow("credits")));
-                    stud.setMarks(cursor.getString(cursor.getColumnIndexOrThrow("marks")));
+                    stud.setId(cursor.getInt(cursor.getColumnIndexOrThrow(ID)));
+                    stud.setFirstName(cursor.getString(cursor.getColumnIndexOrThrow(FIRST_NAME)));
+                    stud.setLastName(cursor.getString(cursor.getColumnIndexOrThrow(LAST_NAME)));
+                    stud.setCourse(cursor.getString(cursor.getColumnIndexOrThrow(COURSE)));
+                    stud.setCredits(cursor.getString(cursor.getColumnIndexOrThrow(CREDITS)));
+                    stud.setMarks(cursor.getString(cursor.getColumnIndexOrThrow(MARKS)));
                     mList.add(stud);
-                }while(cursor.moveToNext());
+                } while (cursor.moveToNext());
             }
         }
 
@@ -76,7 +82,7 @@ public class ViewFragment extends Fragment {
 
 
     //Binding the list to recyclerview by using the object adapter
-    private void bindAdapter(){
+    private void bindAdapter() {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
         mRecyclerview.setLayoutManager(layoutManager);
         mAdapter = new StudListAdapter(mList, getContext());

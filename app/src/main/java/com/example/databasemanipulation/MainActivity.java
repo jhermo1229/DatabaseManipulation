@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mDrawerLayout = findViewById(R.id.drawer_layout);
-        mToggle = new ActionBarDrawerToggle(this,mDrawerLayout, R.string.open, R.string.close);
+        mToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.open, R.string.close);
         mDrawerLayout.addDrawerListener(mToggle);
         mToggle.syncState();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //Setting the navigation drawer
-    private void setNavigationDrawer(){
+    private void setNavigationDrawer() {
         NavigationView navView = findViewById(R.id.nav_view);
         navView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -45,15 +45,15 @@ public class MainActivity extends AppCompatActivity {
                 //Choosing the correct fragment to inflate depending on the user's clicked
                 Fragment frag = null;
                 int itemId = item.getItemId();
-                if(itemId == R.id.gradeEntry){
+                if (itemId == R.id.gradeEntry) {
                     frag = new GradeEntryFragment();
-                }else if(itemId == R.id.viewGrades){
+                } else if (itemId == R.id.viewGrades) {
                     frag = new ViewFragment();
-                } else if(itemId == R.id.search){
+                } else if (itemId == R.id.search) {
                     frag = new SearchFragment();
                 }
 
-                if(frag != null) {
+                if (frag != null) {
                     //create fragment transaction
                     FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
 
@@ -69,8 +69,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //this gets override usually in fragments. Return true if option is toggled
-    public boolean onOptionItemSelected(MenuItem item){
-        if(mToggle.onOptionsItemSelected(item)){
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (mToggle.onOptionsItemSelected(item)) {
             return true;
         }
         return super.onOptionsItemSelected(item);

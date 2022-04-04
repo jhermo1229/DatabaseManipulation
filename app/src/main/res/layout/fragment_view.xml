@@ -4,71 +4,75 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ViewFragment">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical" >
+        android:orientation="vertical">
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+
             <TextView
                 android:layout_width="50dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:gravity="center"
                 android:text="@string/id"
-                android:gravity="center"
                 android:textColor="@color/colorAccent"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
             <TextView
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:gravity="center"
                 android:text="@string/firstName"
-                android:gravity="center"
                 android:textColor="@color/colorAccent"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
             <TextView
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:gravity="center"
                 android:text="@string/lastName"
-                android:gravity="center"
                 android:textColor="@color/colorAccent"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
             <TextView
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:gravity="center"
                 android:text="@string/course"
-                android:gravity="center"
                 android:textColor="@color/colorAccent"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
             <TextView
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:gravity="center"
                 android:text="@string/marks"
-                android:gravity="center"
                 android:textColor="@color/colorAccent"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
             <TextView
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/credits"
                 android:gravity="center"
+                android:text="@string/credits"
                 android:textColor="@color/colorAccent"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
         </LinearLayout>
+
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/recyclerView" />
+            android:layout_height="match_parent" />
     </LinearLayout>
 </FrameLayout>

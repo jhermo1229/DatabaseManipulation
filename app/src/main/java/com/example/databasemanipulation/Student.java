@@ -10,7 +10,7 @@ public class Student {
     private String course;
     private String credits;
 
-    public Student(Integer id, String firstName, String lastName, String marks, String course, String credits){
+    public Student(Integer id, String firstName, String lastName, String marks, String course, String credits) {
         this.setId(id);
         this.setFirstName(firstName);
         this.setLastName(lastName);
@@ -19,7 +19,7 @@ public class Student {
         this.setCredits(credits);
     }
 
-    public Student(){
+    public Student() {
 
     }
 

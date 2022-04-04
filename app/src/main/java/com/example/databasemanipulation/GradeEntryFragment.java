@@ -22,6 +22,9 @@ import android.widget.Toast;
  */
 public class GradeEntryFragment extends Fragment {
 
+    public static final String RECORD_ADDED_SUCCESSFULLY = "Record Added Successfully";
+    public static final String UNSUCCESSFUL_IN_RECORD_ADDING_PLEASE_CHECK_LOGS = "Unsuccessful in record adding. Please check logs";
+    public static final String PLEASE_DON_T_LEAVE_ANYTHING_BLANK_OR_PUT_NON_NUMERIC_ON_MARKS = "Please don't leave anything blank or put non-numeric on Marks";
     //Object initialization global
     private View gradeEntryView;
     private ListView listView;
@@ -90,27 +93,38 @@ public class GradeEntryFragment extends Fragment {
     //Trigger process upon clicking the submit button
     private void submitBtnOnClick() {
         submitBtn.setOnClickListener((gradeEntryView) -> {
+            String firstNameValue = firstName.getText().toString();
+            String lastNameValue = lastName.getText().toString();
+            String marksValue = marks.getText().toString();
 
-            //gets the radiobutton chosen
-            getRadioButtonValue();
+            //Check first if values are empty, null, or not numeric for marks
+            if (isNumeric(marksValue) && !(firstNameValue.isEmpty() || lastNameValue.isEmpty()
+                    || marksValue.isEmpty() || listViewValue == null)) {
 
-            //Sets the autoincrement id to 0
-            Integer studId = 0;
+                //gets the radiobutton chosen
+                getRadioButtonValue();
 
-            //Setting the student object with all the values chosen by user
-            Student stud = new Student(studId, firstName.getText().toString(), lastName.getText().toString(),
-                    marks.getText().toString(), listViewValue, radioValue);
+                //Sets the autoincrement id to 0
+                Integer studId = 0;
 
-            //passing the object to the database handler
-            insertStat = dbh.InsertStudent(stud);
+                //Setting the student object with all the values chosen by user
+                Student stud = new Student(studId, firstNameValue, lastNameValue,
+                        marksValue, listViewValue, radioValue);
 
-            //if values was added successfully will toast a success message. If not, will toast a unsuccessful message
-            if (insertStat) {
-                Toast.makeText(getActivity(), "Record Added Successfully", Toast.LENGTH_SHORT).show();
-            }else{
-                Toast.makeText(getActivity(), "Unsuccessful in record adding. Please check logs", Toast.LENGTH_SHORT).show();
+                //passing the object to the database handler
+                insertStat = dbh.InsertStudent(stud);
+
+                //if values was added successfully will toast a success message. If not, will toast a unsuccessful message
+                if (insertStat) {
+                    Toast.makeText(getActivity(), RECORD_ADDED_SUCCESSFULLY, Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getActivity(), UNSUCCESSFUL_IN_RECORD_ADDING_PLEASE_CHECK_LOGS, Toast.LENGTH_SHORT).show();
+                }
+            } else {
+                Toast.makeText(getActivity(), PLEASE_DON_T_LEAVE_ANYTHING_BLANK_OR_PUT_NON_NUMERIC_ON_MARKS, Toast.LENGTH_SHORT).show();
             }
         });
+
     }
 
 
@@ -126,6 +140,16 @@ public class GradeEntryFragment extends Fragment {
             RadioButton btn = (RadioButton) radioGroup.getChildAt(radioId);
             //After getting radiobutton you can now use all its methods
             radioValue = (String) btn.getText();
+        }
+    }
+
+    //Checking if input of user is numeric
+    public static boolean isNumeric(String str) {
+        try {
+            Double.parseDouble(str);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
         }
     }
 }

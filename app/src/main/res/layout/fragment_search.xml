@@ -51,11 +51,11 @@
                 android:id="@+id/txtIdSearch"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
                 android:ems="10"
                 android:hint="Search By ID"
                 android:inputType="text"
-                android:selectAllOnFocus="true"
-                android:layout_centerInParent="true"/>
+                android:selectAllOnFocus="true" />
 
             <ListView
                 android:id="@+id/searchProgramCodeListV"
@@ -68,8 +68,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center">
+            android:gravity="center"
+            android:orientation="horizontal">
 
             <Button
                 android:id="@+id/submitButton"
@@ -86,69 +86,71 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
+
                 <TextView
+                    android:id="@+id/header_id"
                     android:layout_width="50dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:gravity="center"
                     android:text="@string/id"
-                    android:gravity="center"
                     android:textColor="@color/colorAccent"
-                    android:textStyle="bold"
-                    android:id="@+id/header_id"/>
+                    android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/header_firstName"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:gravity="center"
                     android:text="@string/firstName"
-                    android:gravity="center"
                     android:textColor="@color/colorAccent"
-                    android:textStyle="bold"
-                    android:id="@+id/header_firstName"/>
+                    android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/header_lastName"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:gravity="center"
                     android:text="@string/lastName"
-                    android:gravity="center"
                     android:textColor="@color/colorAccent"
-                    android:textStyle="bold"
-                    android:id="@+id/header_lastName"/>
+                    android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/header_course"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:gravity="center"
                     android:text="@string/course"
-                    android:gravity="center"
                     android:textColor="@color/colorAccent"
-                    android:textStyle="bold"
-                    android:id="@+id/header_course"/>
+                    android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/header_mark"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:gravity="center"
                     android:text="@string/marks"
-                    android:gravity="center"
                     android:textColor="@color/colorAccent"
-                    android:textStyle="bold"
-                    android:id="@+id/header_mark"/>
+                    android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/header_credit"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/credits"
                     android:gravity="center"
+                    android:text="@string/credits"
                     android:textColor="@color/colorAccent"
-                    android:textStyle="bold"
-                    android:id="@+id/header_credit"/>
+                    android:textStyle="bold" />
             </LinearLayout>
 
             <androidx.recyclerview.widget.RecyclerView

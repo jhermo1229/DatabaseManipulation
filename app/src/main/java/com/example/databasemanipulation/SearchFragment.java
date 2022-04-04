@@ -179,7 +179,11 @@ public class SearchFragment extends Fragment {
                     cursor = dbh.viewData(ID, txtIdSearch.getText().toString());
 
                     //if no records found, toast a no record found message
-                    if (cursor == null) {
+                    if (cursor == null || cursor.getCount() == 0) {
+
+                        //Make sure to bind the empty search so that the existing value in
+                        //recycler view will be removed.
+                        bindAdapter();
                         Toast.makeText(getContext(), NO_RECORDS_FOUND, Toast.LENGTH_SHORT).show();
                     } else {
                         //main logic for getting, assigning, outputting data
@@ -197,7 +201,11 @@ public class SearchFragment extends Fragment {
                     //getting the data depending on the chosen program code
                     cursor = dbh.viewData(PROGRAM_CODE, listViewValue);
 
-                    if (cursor == null) {
+                    if (cursor == null || cursor.getCount() == 0) {
+
+                        //Make sure to bind the empty search so that the existing value in
+                        //recycler view will be removed.
+                        bindAdapter();
                         Toast.makeText(getContext(), NO_RECORDS_FOUND, Toast.LENGTH_SHORT).show();
 
                     } else {

@@ -9,47 +9,47 @@
         android:layout_width="50dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="@string/id"
-        android:gravity="center"/>
+        android:gravity="center"
+        android:text="@string/id" />
 
     <TextView
         android:id="@+id/firstName"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="@string/firstName"
-        android:gravity="center"/>
+        android:gravity="center"
+        android:text="@string/firstName" />
 
     <TextView
         android:id="@+id/lastName"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="@string/lastName"
-        android:gravity="center"/>
+        android:gravity="center"
+        android:text="@string/lastName" />
 
     <TextView
         android:id="@+id/course"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="@string/course"
-        android:gravity="center"/>
+        android:gravity="center"
+        android:text="@string/course" />
 
     <TextView
         android:id="@+id/marks"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="@string/marks"
-        android:gravity="center"/>
+        android:gravity="center"
+        android:text="@string/marks" />
 
     <TextView
         android:id="@+id/credits"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="@string/credits"
-        android:gravity="center"/>
+        android:gravity="center"
+        android:text="@string/credits" />
 
 </LinearLayout>

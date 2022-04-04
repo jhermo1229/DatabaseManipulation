@@ -19,22 +19,21 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final int version = 2;
     public static final String TABLE_NAME = "Students";
     public static final String ID = "id";
-    public static final String COL1 = "id";
-    public static final String COL2 = "first_name";
-    public static final String COL3 = "last_name";
-    public static final String COL4 = "course";
-    public static final String COL5 = "marks";
-    public static final String COL6 = "credits";
+    public static final String COL_FIRSTNAME = "first_name";
+    public static final String COL_LASTNAME = "last_name";
+    public static final String COL_COURSE = "course";
+    public static final String COL_MARKS = "marks";
+    public static final String COL_CREDITS = "credits";
 
     //Create table constant. ID is primary key and auto-incremented
-    public static final String CREATE_TABLE = "create table " + TABLE_NAME + "(" + COL1 + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-            + COL2 + " TEXT NOT NULL, " + COL3 + " TEXT, " + COL4 + " TEXT, " + COL5 + " TEXT, " + COL6 + " TEXT);";
+    public static final String CREATE_TABLE = "create table " + TABLE_NAME + "(" + ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+            + COL_FIRSTNAME + " TEXT NOT NULL, " + COL_LASTNAME + " TEXT, " + COL_COURSE + " TEXT, " + COL_MARKS + " TEXT, " + COL_CREDITS + " TEXT);";
     public static final String DROP_TABLE = "DROP TABLE IF EXISTS " + TABLE_NAME;
     public static final String GET_ALL = "getAll";
     public static final String PROGRAM_CODE = "programCode";
 
 
-    //Contructor for initializing database handler
+    //Constructor for initializing database handler
     public DatabaseHelper(@Nullable Context context) {
         super(context, dbName, null, version);
     }
@@ -59,11 +58,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         ContentValues contentValues = new ContentValues();
 
         //COL1 is ID and it is auto-incremented
-        contentValues.put(COL2, stud.getFirstName());
-        contentValues.put(COL3, stud.getLastName());
-        contentValues.put(COL4, stud.getCourse());
-        contentValues.put(COL5, stud.getMarks());
-        contentValues.put(COL6, stud.getCredits());
+        contentValues.put(COL_FIRSTNAME, stud.getFirstName());
+        contentValues.put(COL_LASTNAME, stud.getLastName());
+        contentValues.put(COL_COURSE, stud.getCourse());
+        contentValues.put(COL_MARKS, stud.getMarks());
+        contentValues.put(COL_CREDITS, stud.getCredits());
 
         long result = db.insert(TABLE_NAME, null, contentValues);
 
@@ -82,11 +81,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         //if parameter passed is "getAll" then it gets all the data in the table.
         //Otherwise, it gets based on param.
-        if(searchType.equalsIgnoreCase(GET_ALL)){
+        if (searchType.equalsIgnoreCase(GET_ALL)) {
             cursor = db.rawQuery("Select * from " + TABLE_NAME, null);
-        }else if(searchType.equalsIgnoreCase(ID)){
+        } else if (searchType.equalsIgnoreCase(ID)) {
             cursor = db.rawQuery("Select * from " + TABLE_NAME + " where id=?", new String[]{param});
-        }else if(searchType.equalsIgnoreCase(PROGRAM_CODE)) {
+        } else if (searchType.equalsIgnoreCase(PROGRAM_CODE)) {
             cursor = db.rawQuery("Select * from " + TABLE_NAME + " where course=?", new String[]{param});
         }
         //if data gathered is not null, then will move to first record.

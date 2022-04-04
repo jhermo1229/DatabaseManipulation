@@ -15,7 +15,6 @@
     <string name="id">Id</string>
     <string name="programCode">Program Code</string>
     <string name="search">Search</string>
-
     <string-array name="courseList">
         <item>PROG 8480</item>
         <item>PROG 8470</item>
