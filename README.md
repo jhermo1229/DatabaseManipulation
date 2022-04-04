@@ -1,4 +1,6 @@
 # Grade-Application
+
+**REMAINING TODOS: Fix list view choosing using tab - Need to add functionality for tab button. Currently only able to capture by mouse clicking **
 Grade application android app using the following:
 
 Navigation
