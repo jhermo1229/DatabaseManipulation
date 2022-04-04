@@ -197,7 +197,7 @@ public class SearchFragment extends Fragment {
             } else if (radioValue.equalsIgnoreCase(RADIOVALUE_PROGRAMCODE)) {
 
                 //Check first if any of the item in the listview is chosen. If not will toast an error message
-                if (!(listViewValue.isEmpty() || listViewValue == null)) {
+                if (!(listViewValue == null)) {
                     //getting the data depending on the chosen program code
                     cursor = dbh.viewData(PROGRAM_CODE, listViewValue);
 
